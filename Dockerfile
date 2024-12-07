@@ -16,10 +16,7 @@ RUN chmod +x limbo/limbo.sh
 # Create supervisor configuration
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
-# Expose port 8000 for Koyeb and 25577 for Minecraft
-EXPOSE 8000 25577
-
-# Set environment variable for the port
-ENV PORT=8000
+# Expose both HTTP and WebSocket ports
+EXPOSE 80 443 25577
 
 CMD ["/usr/bin/supervisord"]

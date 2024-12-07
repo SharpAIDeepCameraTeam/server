@@ -1,11 +1,24 @@
 server_name: 'EaglercraftXVelocity Server'
 server_uuid: 286276dd-09a1-487e-b4c6-fc34dd42a3c0
-websocket_connection_timeout: 15000
-websocket_handshake_timeout: 5000
-http_websocket_compression_level: 6
-download_vanilla_skins_to_clients: true
-valid_skin_download_urls:
- - 'textures.minecraft.net'
+settings:
+  rate_limit:
+    enabled: false
+    max_packets: 400
+    period_ms: 1000
+  websocket:
+    allow_origins: []
+    compression_level: 7
+    connection_timeout: 30000
+    handshake_timeout: 30000
+  authentication:
+    enabled: false
+    register_command: register
+    login_command: login
+  download_vanilla_skins: false
+  skin_cache_size: 1000
+  voice_chat:
+    enabled: false
+    port: 8182
 uuid_lookup_ratelimit_player: 50
 uuid_lookup_ratelimit_global: 175
 skin_download_ratelimit_player: 1000

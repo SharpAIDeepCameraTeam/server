@@ -17,7 +17,7 @@ RUN chmod +x server/server.sh velocity/velocity.sh limbo/limbo.sh && \
 # Create supervisor configuration
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
-# Expose port
-EXPOSE 443
+# Expose ports
+EXPOSE 80 8000
 
 CMD ["/usr/bin/supervisord", "-n", "-c", "/etc/supervisor/conf.d/supervisord.conf"]

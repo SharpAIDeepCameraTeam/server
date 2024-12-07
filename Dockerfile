@@ -9,14 +9,15 @@ RUN apt-get update && \
 WORKDIR /app
 COPY . .
 
-RUN chmod +x server/server.sh
-RUN chmod +x velocity/velocity.sh
-RUN chmod +x limbo/limbo.sh
+# Make scripts executable and fix permissions
+RUN chmod +x server/server.sh velocity/velocity.sh limbo/limbo.sh && \
+    mkdir -p /var/log/supervisor /var/run/supervisor && \
+    chmod -R 777 /app
 
 # Create supervisor configuration
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
-# Expose both HTTP and WebSocket ports
-EXPOSE 80 443 25577
+# Expose ports
+EXPOSE 25577
 
-CMD ["/usr/bin/supervisord"]
+CMD ["/usr/bin/supervisord", "-n", "-c", "/etc/supervisor/conf.d/supervisord.conf"]

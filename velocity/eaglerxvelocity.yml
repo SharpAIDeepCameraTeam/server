@@ -1,0 +1,8 @@
+listeners:
+  - bind: "0.0.0.0:8000"
+    server_connect_ip: "127.0.0.1"
+    server_connect_port: 25565
+    allow_voice: false
+    motd1: "EaglerXVelocity Server"
+    motd2: "Minecraft 1.8.8"
+    max_players: 4

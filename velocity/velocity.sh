@@ -1,7 +1,8 @@
 #!/bin/bash
-while [ true ]; do
-    java -Xms2560M -Xmx2560M -jar velocity.jar
 
-    echo Server restarting...
+while [ true ]; do
+    java -Xms64M -Xmx64M -XX:+UseG1GC -XX:G1HeapRegionSize=4M -XX:+UnlockExperimentalVMOptions -XX:+ParallelRefProcEnabled -XX:+AlwaysPreTouch -jar velocity.jar
+
+    echo Velocity restarting...
     echo Press CTRL + C to stop.
 done
